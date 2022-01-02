@@ -49,4 +49,10 @@ describe('Describe guess', () => {
 
       expect(describeGuess(example)).toBe("Two letters in right slot (slots 1 and 5), two letters in wrong slot (slots 2 and 3)")
     });
+
+    test('when the guess is entirely correct', () => {
+      let example = { "correct": [0,1,2,3,4], "present": [], "absent": [] };
+
+      expect(describeGuess(example)).toBe("Word guessed correctly!")
+    });
 });

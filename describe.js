@@ -30,6 +30,10 @@ export function describeGuess(tileList) {
         return "No correct letters";
     }
 
+    if (tileList["correct"].length == 5) {
+        return "Word guessed correctly!";
+    }
+
     let output = []
 
     if (tileList["correct"].length > 0) {
