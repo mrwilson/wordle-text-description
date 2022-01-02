@@ -1,4 +1,6 @@
 import(browser.runtime.getURL('describe.js'))
   .then((module) => {
-    console.log(module.getTileStates())
+    let guesses = module.getTileStates();
+
+    console.log(guesses.map((guess, index) => `${index+1}. ${module.describeGuess(guess)}`));
   });
