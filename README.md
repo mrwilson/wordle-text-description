@@ -1,6 +1,8 @@
 # wordle-text-description
 
-A browser extension to generate a screen-reader-friendly representation of a Wordle game.
+A browser extension that adds a button to generate a screen-reader-friendly representation of a Wordle game.
+
+![image](https://user-images.githubusercontent.com/460299/147882457-8d278dea-b16e-4c08-ac56-fbe4905801a9.png)
 
 ## Motivation
 
