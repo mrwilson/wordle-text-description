@@ -1,0 +1,17 @@
+export function getTileStates() {
+    let game = document.getElementsByTagName('game-app')[0].shadowRoot
+
+    let manager = game.querySelectorAll('game-theme-manager')[0];
+
+    let nonEmptyRows = [...manager.querySelectorAll('game-row')].filter(row => row.getAttribute('letters') != "");
+
+    let tiles = nonEmptyRows
+        .map(row => [...row.shadowRoot.querySelectorAll('game-tile')].map(tile => tile.getAttribute('evaluation')))
+        .map(tileList => tileList.reduce((state, tile, index) => { state[tile].push(index); return state }, {'present':[], 'absent': [], 'correct':[]}));
+
+    return tiles;
+}
+
+export function example() {
+    return 1;
+}

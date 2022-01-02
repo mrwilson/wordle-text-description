@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "jest-environment-node": "^27.4.4"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  }
+}

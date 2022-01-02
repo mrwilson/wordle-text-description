@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Wordle Accessibility Tweets",
+  "version": "1.0",
+
+  "description": "Generates a screen-reader friendly representation of your Wordle game",
+
+  "content_scripts": [{
+    "matches": ["https://www.powerlanguage.co.uk/wordle/*"],
+    "js": ["main.js"]
+  }],
+
+  "web_accessible_resources": [
+    "describe.js"
+  ]
+}
