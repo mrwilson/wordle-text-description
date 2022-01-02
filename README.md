@@ -31,3 +31,9 @@ Text version:
 4. Two letters in right slot (slots 2 and 3), one letter in wrong slot (slot 5)
 5. Word guessed correctly!
 ```
+
+## Installation
+
+This extension is currently not published.
+
+You can install as a [Temporary Extension in Firefox](https://developer.mozilla.org/en-US/docs/Tools/about:debugging#loading_a_temporary_extension) or as an [unpacked extension in Chrome](https://developer.chrome.com/docs/extensions/mv3/getstarted/#manifest)
