@@ -12,6 +12,11 @@ export function getTileStates() {
     return tiles;
 }
 
-export function example() {
-    return 1;
+export function numberToWord(number) {
+
+    if (number < 1 || number > 5) {
+        throw 'Input outside of range [1,5]';
+    }
+
+    return ["one","two","three","four","five"][number - 1];
 }
