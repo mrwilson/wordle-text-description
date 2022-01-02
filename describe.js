@@ -14,6 +14,18 @@ export function getTileStates() {
 
 export function describeGuess(tileList) {
 
+    const describeSlots = (slots) => {
+        let oneIndexedSlots = slots.map((i) => i+1);
+
+        if (oneIndexedSlots.length == 1) {
+            return `(slot ${oneIndexedSlots[0]})`
+        } else {
+            return `(slots ${oneIndexedSlots.slice(0, -1).join(",")} and ${oneIndexedSlots.slice(-1)[0]})`
+        }
+
+    };
+
+
     if (tileList["absent"].length == 5) {
         return "No correct letters";
     }
@@ -21,11 +33,11 @@ export function describeGuess(tileList) {
     let output = []
 
     if (tileList["correct"].length > 0) {
-        output.push(`${numberToWord(tileList["correct"].length)} letter${tileList["correct"].length == 1 ? "" : "s"} in right slot`);
+        output.push(`${numberToWord(tileList["correct"].length)} letter${tileList["correct"].length == 1 ? "" : "s"} in right slot ${describeSlots(tileList["correct"])}`);
     }
 
     if (tileList["present"].length > 0) {
-        output.push(`${numberToWord(tileList["present"].length)} letter${tileList["present"].length == 1 ? "" : "s"} in wrong slot`);
+        output.push(`${numberToWord(tileList["present"].length)} letter${tileList["present"].length == 1 ? "" : "s"} in wrong slot ${describeSlots(tileList["present"])}`);
     }
 
     let text = output.join(", ");
