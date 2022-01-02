@@ -37,11 +37,13 @@ export function describeGuess(tileList) {
     let output = []
 
     if (tileList["correct"].length > 0) {
-        output.push(`${numberToWord(tileList["correct"].length)} letter${tileList["correct"].length == 1 ? "" : "s"} in right slot ${describeSlots(tileList["correct"])}`);
+        let matches = tileList["correct"].length
+        output.push(`${numberToWord(matches)} letter${matches == 1 ? "" : "s"} in right slot ${describeSlots(tileList["correct"])}`);
     }
 
     if (tileList["present"].length > 0) {
-        output.push(`${numberToWord(tileList["present"].length)} letter${tileList["present"].length == 1 ? "" : "s"} in wrong slot ${describeSlots(tileList["present"])}`);
+        let matches = tileList["present"].length
+        output.push(`${numberToWord(matches)} letter${matches == 1 ? "" : "s"} in wrong slot ${describeSlots(tileList["present"])}`);
     }
 
     let text = output.join(", ");
