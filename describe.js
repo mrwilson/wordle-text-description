@@ -12,6 +12,28 @@ export function getTileStates() {
     return tiles;
 }
 
+export function describeGuess(tileList) {
+
+    if (tileList["absent"].length == 5) {
+        return "No correct letters";
+    }
+
+    let output = []
+
+    if (tileList["correct"].length > 0) {
+        output.push(`${numberToWord(tileList["correct"].length)} letter(s) in right slot`);
+    }
+
+    if (tileList["present"].length > 0) {
+        output.push(`${numberToWord(tileList["present"].length)} letter(s) in wrong slot`);
+    }
+
+    let text = output.join(", ");
+
+    return text[0].toUpperCase() + text.slice(1)
+
+}
+
 export function numberToWord(number) {
 
     if (number < 1 || number > 5) {
