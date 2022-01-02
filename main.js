@@ -1,4 +1,6 @@
-import(browser.runtime.getURL('describe.js'))
+let runtime = chrome !== undefined ? chrome.runtime : browser.runtime;
+
+import(runtime.getURL('describe.js'))
   .then((module) => {
     let guesses = module.getTileStates();
 
