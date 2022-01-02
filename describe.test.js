@@ -20,21 +20,33 @@ describe('Describe guess', () => {
       expect(describeGuess(example)).toBe("No correct letters")
     });
 
-    test('when at least one slot is a present match', () => {
+    test('when one slot is a present match', () => {
       let example = { "correct": [], "present": [0], "absent": [1,2,3,4] };
 
-      expect(describeGuess(example)).toBe("One letter(s) in wrong slot");
+      expect(describeGuess(example)).toBe("One letter in wrong slot");
     });
 
-    test('when at least one slot is a correct match', () => {
+    test('when at least two slots are a present match', () => {
+      let example = { "correct": [], "present": [0,1], "absent": [2,3,4] };
+
+      expect(describeGuess(example)).toBe("Two letters in wrong slot");
+    });
+
+    test('when one slot is a correct match', () => {
       let example = { "correct": [0], "present": [], "absent": [1,2,3,4] };
 
-      expect(describeGuess(example)).toBe("One letter(s) in right slot")
+      expect(describeGuess(example)).toBe("One letter in right slot")
+    });
+
+    test('when at least two slots are a correct match', () => {
+      let example = { "correct": [0,1], "present": [], "absent": [2,3,4] };
+
+      expect(describeGuess(example)).toBe("Two letters in right slot")
     });
 
     test('when there is a mix of correct and present matches', () => {
-      let example = { "correct": [0], "present": [1], "absent": [2,3,4] };
+      let example = { "correct": [0,4], "present": [1,2], "absent": [3] };
 
-      expect(describeGuess(example)).toBe("One letter(s) in right slot, one letter(s) in wrong slot")
+      expect(describeGuess(example)).toBe("Two letters in right slot, two letters in wrong slot")
     });
 });
